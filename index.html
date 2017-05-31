@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GOTHAM CITY | Vue, RainyDay and Howler Usage</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet" type="text/css">
+    <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/ico" href="batsyy.ico">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <v-app id="rainApp" dark>
+        <v-toolbar fixed>
+            <v-toolbar-title>Gotham City</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn icon light @click.native="audioControl">
+                <v-icon>{{play_icon}}</v-icon>
+            </v-btn>
+            <v-btn icon light @click.native="stopAudio" v-show="stop_btn">
+                <v-icon>stop</v-icon>
+            </v-btn>
+            <!-- dialog -->
+            <v-dialog v-model="dialog" persistent>
+                <v-card>
+                    <v-card-row>
+                        <v-card-title>Used Libraries</v-card-title>
+                    </v-card-row>
+                    <v-card-row>
+                        <v-card-text class="text-xs-center">
+                            <div v-for="(lib, i) in libraries" :key="i">
+                                <v-btn flat class="white--text" @click.native="visitLink(lib.url)">{{lib.name}}</v-btn>
+                                <p>{{lib.desc}}</p>
+                                <v-divider></v-divider>
+                            </div>
+                        </v-card-text>
+                    </v-card-row>
+                    <v-card-row actions>
+                        <v-btn class="white--text" flat="flat" @click.native="dialog = false">Close</v-btn>
+                    </v-card-row>
+                </v-card>
+            </v-dialog>
+            <!-- dialog -->
+        </v-toolbar>
+        <img src="http://i.imgur.com/eP62VAN.jpg" id="gothamBackground" alt="gothamBackground">
+    </v-app>
+
+    <script src="bower_components/vue/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/vuetify/dist/vuetify.min.js"></script>
+    <script src="bower_components/rainyday.js/dist/rainyday.min.js"></script>
+    <script src="bower_components/howler.js/dist/howler.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

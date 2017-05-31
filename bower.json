@@ -1,0 +1,15 @@
+{
+  "name": "vue-rain",
+  "authors": [
+    "Robert Soriano <sorianorobertc@gmail.com>"
+  ],
+  "description": "Vue and Rainyday.js Web App",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "rainyday.js": "^0.1.2",
+    "vue": "^2.3.3",
+    "howler.js": "howler#^2.0.3"
+  }
+}
